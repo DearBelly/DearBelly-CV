@@ -1,0 +1,22 @@
+# --- Core ML Framework ---
+torch>=2.1.0
+torchvision>=0.16.0
+
+# --- Data Handling & Utilities ---
+numpy>=1.24.0
+pandas>=2.0.0
+tqdm>=4.66.0
+Pillow>=10.0.0
+PyYAML>=6.0.1
+
+# --- Visualization (optional but useful for debugging) ---
+matplotlib>=3.8.0
+
+# --- OpenAI API for LLM Advisory ---
+openai>=1.6.1
+
+# --- Testing ---
+pytest>=7.4.0
+
+# --- Environment / Path Utilities ---
+python-dotenv>=1.0.0
