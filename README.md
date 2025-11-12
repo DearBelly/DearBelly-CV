@@ -32,59 +32,59 @@ Google Colab / 로컬 환경에서 동일하게 재현 가능합니다.
 ## 🧩 프로젝트 구조
 
 ai_modules/
-├── src/
-│   ├── data_prep/
-│   │   ├── dataset_precomputed.py        # JSON 기반 데이터셋 로더 (image_path + label)
-│   │   ├── extract_archives.py           # ZIP 압축 자동 해제 스크립트
-│   │   ├── count_images.py               # 폴더별 이미지 개수 검사
-│   │   └── center_crop_resize.py         # 중앙 크롭 및 리사이즈 자동화
-│   │
-│   ├── data_augmentation/                # 데이터 증강 (개별 실행형)
-│   │   ├── add_noise.py                  # 가우시안 노이즈 추가
-│   │   ├── shear_images.py               # Shear(기울이기) 변형
-│   │   └── adjust_brightness.py          # 밝기 조절
-│   │
-│   ├── models/
-│   │   ├── simple_cnn.py                 # 2 conv + 2 fc 기반 경량 CNN
-│   │   ├── model_lightcnn.py             # LightCNN (AdaptiveAvgPool 포함)
-│   │   └── efficientnet_baseline.py      # EfficientNet-B3 백본 모델
-│   │
-│   ├── trainers/
-│   │   ├── train_light_cnn.py            # LightCNN 학습/평가 루프
-│   │   ├── train_efficientnet_baseline.py# EfficientNet-B3 베이스라인 학습 스크립트
-│   │   └── train_timm.py                 # TIMM 백본 학습 (ArcFace/Mixup 옵션 지원)
-│   │
-│   ├── optimizer/
-│   │   ├── __init__.py
-│   │   ├── optim_experiment.py           # run_experiment_for, plot_from_csvs 등 공통 로직
-│   │   └── main_lightcnn_optim.py        # SGD/Momentum/Adam 비교 실행 엔트리
-│   │
-│   ├── inference/
-│   │   └── predict.py                    # 단일 이미지 추론 (Top-k 결과 출력)
-│   │
-│   ├── services/
-│   │   └── pregnancy_advice.py           # LLM 기반 임산부 복용 자문 모듈 (OpenAI API)
-│   │
-│   ├── utils/
-│   │   ├── seed.py                       # 시드 고정 유틸
-│   │   ├── paths.py                      # 경로 관리 클래스
-│   │   ├── idx2label.py                  # 라벨 매핑 유틸
-│   │   └── early_stopping.py             # EarlyStopping 클래스
-│   │
-│   ├── predict_and_advise.py             # CNN 추론 + LLM 자문 통합 실행 스크립트
-│   └── README.md                         # 서브모듈용 설명 문서
-│
-├── configs/
-│   └── baseline.yaml                     # 학습 기본 설정 (경로, 배치, 에폭, 러닝레이트 등)
-│
-├── tests/
-│   └── test_training_smoke.py            # 모델 학습 검증용 스모크 테스트
-│
-├── README.md                             # 리포지토리 전체 문서 (본 파일)
-├── requirements.txt                      # 의존 패키지 리스트
-├── .gitignore                            # 로그/체크포인트 무시 설정
-├── .gitattributes                        # Git 속성 관리
-└── __init__.py                           # 패키지 초기화
+    ├── src/
+    │   ├── data_prep/
+    │   │   ├── dataset_precomputed.py        # JSON 기반 데이터셋 로더 (image_path + label)
+    │   │   ├── extract_archives.py           # ZIP 압축 자동 해제 스크립트
+    │   │   ├── count_images.py               # 폴더별 이미지 개수 검사
+    │   │   └── center_crop_resize.py         # 중앙 크롭 및 리사이즈 자동화
+    │   │
+    │   ├── data_augmentation/                # 데이터 증강 (개별 실행형)
+    │   │   ├── add_noise.py                  # 가우시안 노이즈 추가
+    │   │   ├── shear_images.py               # Shear(기울이기) 변형
+    │   │   └── adjust_brightness.py          # 밝기 조절
+    │   │
+    │   ├── models/
+    │   │   ├── simple_cnn.py                 # 2 conv + 2 fc 기반 경량 CNN
+    │   │   ├── model_lightcnn.py             # LightCNN (AdaptiveAvgPool 포함)
+    │   │   └── efficientnet_baseline.py      # EfficientNet-B3 백본 모델
+    │   │
+    │   ├── trainers/
+    │   │   ├── train_light_cnn.py            # LightCNN 학습/평가 루프
+    │   │   ├── train_efficientnet_baseline.py# EfficientNet-B3 베이스라인 학습 스크립트
+    │   │   └── train_timm.py                 # TIMM 백본 학습 (ArcFace/Mixup 옵션 지원)
+    │   │
+    │   ├── optimizer/
+    │   │   ├── __init__.py
+    │   │   ├── optim_experiment.py           # run_experiment_for, plot_from_csvs 등 공통 로직
+    │   │   └── main_lightcnn_optim.py        # SGD/Momentum/Adam 비교 실행 엔트리
+    │   │
+    │   ├── inference/
+    │   │   └── predict.py                    # 단일 이미지 추론 (Top-k 결과 출력)
+    │   │
+    │   ├── services/
+    │   │   └── pregnancy_advice.py           # LLM 기반 임산부 복용 자문 모듈 (OpenAI API)
+    │   │
+    │   ├── utils/
+    │   │   ├── seed.py                       # 시드 고정 유틸
+    │   │   ├── paths.py                      # 경로 관리 클래스
+    │   │   ├── idx2label.py                  # 라벨 매핑 유틸
+    │   │   └── early_stopping.py             # EarlyStopping 클래스
+    │   │
+    │   ├── predict_and_advise.py             # CNN 추론 + LLM 자문 통합 실행 스크립트
+    │   └── README.md                         # 서브모듈용 설명 문서
+    │
+    ├── configs/
+    │   └── baseline.yaml                     # 학습 기본 설정 (경로, 배치, 에폭, 러닝레이트 등)
+    │
+    ├── tests/
+    │   └── test_training_smoke.py            # 모델 학습 검증용 스모크 테스트
+    │
+    ├── README.md                             # 리포지토리 전체 문서 (본 파일)
+    ├── requirements.txt                      # 의존 패키지 리스트
+    ├── .gitignore                            # 로그/체크포인트 무시 설정
+    ├── .gitattributes                        # Git 속성 관리
+    └── __init__.py                           # 패키지 초기화
 
 ---
 
