@@ -82,9 +82,8 @@ Google Colab / 로컬 환경에서 동일하게 재현 가능합니다.
         │
         ├── README.md                             # 리포지토리 전체 문서 (본 파일)
         ├── requirements.txt                      # 의존 패키지 리스트
-        ├── .gitignore                            # 로그/체크포인트 무시 설정
-        ├── .gitattributes                        # Git 속성 관리
-        └── __init__.py                           # 패키지 초기화
+        ├── .gitignore                            # 무시 설정
+        └── __init__.py                          
 ```
 ---
 
